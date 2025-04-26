@@ -1,0 +1,102 @@
+index.html<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Hug from Zuhur</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffe0ec, #c0eaff);
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .hug {
+      font-size: 5em;
+      animation: hugPulse 1.5s infinite ease-in-out;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 80%;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: #ff7aa2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #e86691;
+    }
+
+    @keyframes hugPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div>
+    <h1>A Digital Hug from Zuhur</h1>
+    <div class="hug">🤗</div>
+    <input type="text" id="nameInput" placeholder="Your name here..." />
+    <button onclick="showHug()">Receive Hug</button>
+
+    <div id="message">
+      <p id="personalMsg"></p>
+      <button onclick="copyLink()">Send This Hug to Someone Else</button>
+      <p class="footer">Just share this page to keep it going!</p>
+    </div>
+  </div>
+
+  <script>
+    function showHug() {
+      const name = document.getElementById('nameInput').value.trim();
+      const msg = document.getElementById('personalMsg');
+      if (name) {
+        msg.innerHTML = `${name}, you are loved, appreciated, and not alone.<br>Take this digital hug and pass it on.`;
+        document.getElementById('message').style.display = 'block';
+      }
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href);
+      alert("Link copied! Send it to someone who needs a hug.");
+    }
+  </script>
+
+</body>
+</html>
